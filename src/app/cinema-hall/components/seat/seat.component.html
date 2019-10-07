@@ -1,0 +1,4 @@
+<span class="seat" (click)="toggle()"
+    [ngClass]="{ordered: seat.status === 'ORDERED', booked: seat.status === 'BOOKED'}">
+    {{ seat.seatNumber }}
+</span>

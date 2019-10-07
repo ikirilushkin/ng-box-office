@@ -1,0 +1,4 @@
+<bo-seating-arrangement [hall]="hallView$ | async"></bo-seating-arrangement>
+<bo-order [orderedSeats]="orderedSeats$ | async" (proceedOrder)="onOrderProceed($event)"
+    (cancelOrder)="onCancelOrder($event)">
+</bo-order>
