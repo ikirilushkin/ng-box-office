@@ -1,3 +1,4 @@
+import { CinemaRow } from '@bo/cinema-hall/models';
 import * as fromCinemaHall from '@bo/cinema-hall/reducers';
 import * as fromSeats from '@bo/cinema-hall/reducers/seat.reducer';
 import { createSelector } from '@ngrx/store';
@@ -28,6 +29,21 @@ export const getSeatRows = createSelector(
       }
       return rows;
     }, {})
+);
+
+export const getCinemaHallView = createSelector(
+  getSeatRows,
+  rowsObj => {
+    const rows: CinemaRow[] = [];
+    for (const key of Object.keys(rowsObj)) {
+      const cinemaRow: CinemaRow = {
+        rowNumber: +key,
+        seats: rowsObj[key]
+      };
+      rows.push(cinemaRow);
+    }
+    return { rows };
+  }
 );
 
 export const getOrderedSeats = createSelector(

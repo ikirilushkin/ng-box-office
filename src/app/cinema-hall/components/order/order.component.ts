@@ -20,7 +20,6 @@ export class OrderComponent {
   @Output() proceedOrder: EventEmitter<number[]> = new EventEmitter();
 
   @Output() cancelOrder: EventEmitter<number[]> = new EventEmitter();
-  constructor() {}
 
   cancel() {
     this.cancelOrder.emit(this.getOrderedSeatsIds());

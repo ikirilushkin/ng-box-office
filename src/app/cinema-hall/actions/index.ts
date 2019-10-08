@@ -1,3 +1,5 @@
-import * as CinemaHallActions from './cinema-hall.actions';
+import * as OrderActions from './order.actions';
+import * as SeatActions from './seat.actions';
 
-export { CinemaHallActions };
+export { SeatActions, OrderActions };
+

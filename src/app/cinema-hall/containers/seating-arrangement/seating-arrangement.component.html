@@ -1,4 +1,4 @@
-<div class="hall-row" *ngFor="let row of hall.rows">
+<div class="hall-row" *ngFor="let row of (hall$ | async).rows">
     <span class="hall-row__number">{{row.rowNumber}}:</span>
     <div class="hall-row__seats">
         <bo-seat class="hall-row__seat" [seat]="seat" *ngFor="let seat of row.seats"

@@ -6,7 +6,7 @@ import { filter, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import {
   loadCinemaHallSeats,
   loadCinemaHallSeatsSuccess
-} from '../actions/cinema-hall.actions';
+} from '../actions/seat.actions';
 import { Seat } from '../models';
 import { seatsLoaded } from '../selectors/cinema-hall.selectors';
 import { CinemaHallService } from '../services';

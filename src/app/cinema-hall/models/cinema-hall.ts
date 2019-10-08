@@ -12,10 +12,6 @@ export interface CinemaRow {
   seats: Seat[];
 }
 
-export interface CinemaHall {
-  seats: Seat[];
-}
-
 export interface CinemaHallView {
   rows: CinemaRow[];
 }

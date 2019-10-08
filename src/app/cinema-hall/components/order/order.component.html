@@ -1,9 +1,9 @@
-<p>
-    You've ordered:
-</p>
-<p *ngFor="let seat of orderedSeats">
-    seat {{ seat.seatNumber}} at row {{ seat.row }}
-</p>
-
-<button mat-raised-button color="primary" (click)="buy()">Procees Order</button>
-<button mat-raised-button color="warn" (click)="cancel()">Cancel</button>
+<div *ngIf="orderedSeats.length">
+    <p>You've ordered:</p>
+    <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let seat of orderedSeats">seat {{ seat.seatNumber}} at row {{ seat.row }}
+        </mat-list-item>
+    </mat-list>
+    <button mat-raised-button class="order-button" color="primary" (click)="buy()">Procees Order</button>
+    <button mat-raised-button class="cancel-button" color="warn" (click)="cancel()">Cancel</button>
+</div>

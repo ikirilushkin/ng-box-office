@@ -1,10 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import {
-  bookSeat,
-  cancelSeatBooking
-} from '@bo/cinema-hall/actions/cinema-hall.actions';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { bookSeat, cancelSeatBooking } from '@bo/cinema-hall/actions/seat.actions';
 import { CinemaHallView, Seat } from '@bo/cinema-hall/models';
+import { getCinemaHallView } from '@bo/cinema-hall/selectors/cinema-hall.selectors';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'bo-seating-arrangement',
@@ -13,7 +12,7 @@ import { Store } from '@ngrx/store';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SeatingArrangementComponent {
-  @Input() hall: CinemaHallView;
+  hall$: Observable<CinemaHallView> = this.store.select(getCinemaHallView);
   constructor(private store: Store<{}>) {}
 
   onToggleSeat(seat: Seat) {

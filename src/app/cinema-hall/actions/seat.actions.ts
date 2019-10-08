@@ -17,13 +17,3 @@ export const cancelSeatBooking = createAction(
   '[Cinema Hall] Cancel Seat Booking',
   props<{ seatId: number }>()
 );
-
-export const proceedOrder = createAction(
-  '[Cinema Hall] Proceed Order',
-  props<{ ids: number[] }>()
-);
-
-export const cancelOrder = createAction(
-  '[Cinema Hall] Cancel Order',
-  props<{ ids: number[] }>()
-);

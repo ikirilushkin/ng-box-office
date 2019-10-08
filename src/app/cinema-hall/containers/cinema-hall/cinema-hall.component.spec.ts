@@ -1,6 +1,7 @@
+import { Component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { CinemaHallComponent } from './cinema-hall.component';
+import { CinemaHallComponent } from '@bo/cinema-hall/containers';
+import { provideMockStore } from '@ngrx/store/testing';
 
 describe('CinemaHallComponent', () => {
   let component: CinemaHallComponent;
@@ -8,9 +9,13 @@ describe('CinemaHallComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CinemaHallComponent ]
-    })
-    .compileComponents();
+      declarations: [CinemaHallComponent, SeatingArrangementStubComponent],
+      providers: [
+        provideMockStore({
+          initialState: {}
+        })
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -23,3 +28,6 @@ describe('CinemaHallComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+@Component({ selector: 'bo-seating-arrangement', template: '' })
+class SeatingArrangementStubComponent {}

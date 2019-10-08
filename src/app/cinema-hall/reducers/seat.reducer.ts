@@ -1,13 +1,7 @@
+import { OrderActions, SeatActions } from '@bo/cinema-hall/actions';
 import { Seat, SeatStatus } from '@bo/cinema-hall/models';
 import { createEntityAdapter, EntityState, Update } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
-import {
-  bookSeat,
-  cancelOrder,
-  cancelSeatBooking,
-  loadCinemaHallSeatsSuccess,
-  proceedOrder
-} from '../actions/cinema-hall.actions';
 
 export const seatsFeatureKey = 'seats';
 
@@ -19,10 +13,10 @@ const initialState: State = adapter.getInitialState();
 
 const cinemaHallReducer = createReducer(
   initialState,
-  on(loadCinemaHallSeatsSuccess, (state, { seats }) =>
+  on(SeatActions.loadCinemaHallSeatsSuccess, (state, { seats }) =>
     adapter.addMany(seats, state)
   ),
-  on(bookSeat, (state, { seatId }) =>
+  on(SeatActions.bookSeat, (state, { seatId }) =>
     adapter.updateOne(
       {
         id: seatId,
@@ -33,7 +27,7 @@ const cinemaHallReducer = createReducer(
       state
     )
   ),
-  on(cancelSeatBooking, (state, { seatId }) =>
+  on(SeatActions.cancelSeatBooking, (state, { seatId }) =>
     adapter.updateOne(
       {
         id: seatId,
@@ -44,10 +38,10 @@ const cinemaHallReducer = createReducer(
       state
     )
   ),
-  on(proceedOrder, (state, { ids }) => {
+  on(OrderActions.proceedOrder, (state, { ids }) => {
     return adapter.updateMany(updateStatusMany(ids, 'ORDERED'), state);
   }),
-  on(cancelOrder, (state, { ids }) => {
+  on(OrderActions.cancelOrder, (state, { ids }) => {
     return adapter.updateMany(updateStatusMany(ids, 'FREE'), state);
   })
 );

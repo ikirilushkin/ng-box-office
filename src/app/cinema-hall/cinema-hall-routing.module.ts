@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CinemaHallComponent } from './containers/cinema-hall.component';
+import { CinemaHallComponent } from '@bo/cinema-hall/containers';
 
 const routes: Routes = [{ path: '', component: CinemaHallComponent }];
 
