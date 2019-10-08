@@ -1,0 +1,19 @@
+@import '~@angular/material/theming';
+
+@mixin seat-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+
+  .seat {
+    background-color: mat-color($primary);
+
+    &.booked {
+      background-color: mat-color($accent);
+    }
+
+    &.ordered {
+      background-color: mat-color($warn);
+    }
+  }
+}

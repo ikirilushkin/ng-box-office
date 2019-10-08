@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+
+@import 'src/app/cinema-hall/components/seat/seat-theme.scss';
+
+$bo-primary: mat-palette($mat-teal);
+$bo-accent: mat-palette($mat-amber);
+$bo-warn: mat-palette($mat-deep-orange);
+$bo-theme: mat-dark-theme($bo-primary, $bo-accent, $bo-warn);
+
+@mixin bo-themes($theme) {
+  @include seat-theme($theme);
+}
+
+@include bo-themes($bo-theme);
