@@ -15,3 +15,12 @@ export interface CinemaRow {
 export interface CinemaHallView {
   rows: CinemaRow[];
 }
+
+export function generateMockSeat(status: SeatStatus): Seat {
+  return {
+    id: 1000,
+    row: 1,
+    seatNumber: 1,
+    status
+  };
+}

@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { bookSeat, cancelSeatBooking } from '@bo/cinema-hall/actions/seat.actions';
+import {
+  bookSeat,
+  cancelSeatBooking
+} from '@bo/cinema-hall/actions/seat.actions';
 import { CinemaHallView, Seat } from '@bo/cinema-hall/models';
 import { getCinemaHallView } from '@bo/cinema-hall/selectors/cinema-hall.selectors';
 import { Store } from '@ngrx/store';
@@ -13,6 +16,7 @@ import { Observable } from 'rxjs';
 })
 export class SeatingArrangementComponent {
   hall$: Observable<CinemaHallView> = this.store.select(getCinemaHallView);
+
   constructor(private store: Store<{}>) {}
 
   onToggleSeat(seat: Seat) {

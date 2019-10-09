@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CinemaHallComponent should create 1`] = `
+<bo-cinema-hall
+  orderedSeats$={[Function Observable]}
+  store={[Function MockStore]}
+>
+  <bo-seating-arrangement /><bo-order />
+</bo-cinema-hall>
+`;

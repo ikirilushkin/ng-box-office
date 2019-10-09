@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SeatReducer order actions should cancel order 1`] = `
+Object {
+  "entities": Object {
+    "1000": Object {
+      "id": 1000,
+      "row": 1,
+      "seatNumber": 1,
+      "status": "FREE",
+    },
+    "1001": Object {
+      "id": 1001,
+      "row": 1,
+      "seatNumber": 1,
+      "status": "FREE",
+    },
+  },
+  "ids": Array [
+    1000,
+    1001,
+  ],
+}
+`;
+
+exports[`SeatReducer order actions should proceed order 1`] = `
+Object {
+  "entities": Object {
+    "1000": Object {
+      "id": 1000,
+      "row": 1,
+      "seatNumber": 1,
+      "status": "ORDERED",
+    },
+    "1001": Object {
+      "id": 1001,
+      "row": 1,
+      "seatNumber": 1,
+      "status": "ORDERED",
+    },
+  },
+  "ids": Array [
+    1000,
+    1001,
+  ],
+}
+`;
+
+exports[`SeatReducer seat actions should book seat 1`] = `
+Object {
+  "entities": Object {
+    "1000": Object {
+      "id": 1000,
+      "row": 1,
+      "seatNumber": 1,
+      "status": "FREE",
+    },
+    "1001": Object {
+      "id": 1001,
+      "row": 1,
+      "seatNumber": 1,
+      "status": "BOOKED",
+    },
+  },
+  "ids": Array [
+    1000,
+    1001,
+  ],
+}
+`;
+
+exports[`SeatReducer seat actions should cancel seat booking 1`] = `
+Object {
+  "entities": Object {
+    "1000": Object {
+      "id": 1000,
+      "row": 1,
+      "seatNumber": 1,
+      "status": "FREE",
+    },
+    "1001": Object {
+      "id": 1001,
+      "row": 1,
+      "seatNumber": 1,
+      "status": "FREE",
+    },
+  },
+  "ids": Array [
+    1000,
+    1001,
+  ],
+}
+`;
+
+exports[`SeatReducer seat actions should load cinema hall seats 1`] = `
+Object {
+  "entities": Object {
+    "1000": Object {
+      "id": 1000,
+      "row": 1,
+      "seatNumber": 1,
+      "status": "FREE",
+    },
+    "1001": Object {
+      "id": 1001,
+      "row": 1,
+      "seatNumber": 1,
+      "status": "FREE",
+    },
+  },
+  "ids": Array [
+    1000,
+    1001,
+  ],
+}
+`;
+
+exports[`SeatReducer undefined action should return default state 1`] = `
+Object {
+  "entities": Object {},
+  "ids": Array [],
+}
+`;

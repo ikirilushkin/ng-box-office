@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SeatingArrangementComponent should create 1`] = `
+<bo-seating-arrangement
+  hall$={[Function Observable]}
+  store={[Function MockStore]}
+>
+  
+</bo-seating-arrangement>
+`;
