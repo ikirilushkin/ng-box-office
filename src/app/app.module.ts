@@ -4,11 +4,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from '@bo/app-routing.module';
 import { CoreModule } from '@bo/core';
 import { AppComponent } from '@bo/core/containers';
-import { StoreModule } from '@ngrx/store';
-import { metaReducers, reducers } from './reducers';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { reducers } from '@bo/reducers';
 import { EffectsModule } from '@ngrx/effects';
-import { AppEffects } from './app.effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 
@@ -20,15 +19,18 @@ import { environment } from '../environments/environment';
     CoreModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers, {
-      metaReducers,
       runtimeChecks: {
         strictStateImmutability: true,
         strictActionImmutability: true
       }
     }),
+    EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),
-    EffectsModule.forRoot([AppEffects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+      name: 'Cinema Box Office'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

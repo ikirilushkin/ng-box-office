@@ -5,6 +5,13 @@ exports[`CinemaHallComponent should create 1`] = `
   orderedSeats$={[Function Observable]}
   store={[Function MockStore]}
 >
-  <bo-seating-arrangement /><bo-order />
+  <div
+    class="cinema-hall"
+  >
+    <bo-seating-arrangement />
+    <bo-order
+      class="cinema-hall__order"
+    />
+  </div>
 </bo-cinema-hall>
 `;

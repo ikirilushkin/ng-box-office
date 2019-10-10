@@ -1,19 +1,21 @@
 import * as fromRoot from '@bo/reducers';
 import { ActionReducerMap, createFeatureSelector } from '@ngrx/store';
-import * as fromCinemaHall from './seat.reducer';
+import * as fromSeat from './seat.reducer';
+
+export const cinemaHallFeatureState = 'cinemaHall';
 
 export interface CinemaHallState {
-  [fromCinemaHall.seatsFeatureKey]: fromCinemaHall.State;
+  [fromSeat.seatsFeatureKey]: fromSeat.State;
 }
 
 export interface State extends fromRoot.State {
-  cinemaHall: CinemaHallState;
+  cinemaHallFeatureState: CinemaHallState;
 }
 
 export const reducers: ActionReducerMap<CinemaHallState> = {
-  seats: fromCinemaHall.reducer
+  seats: fromSeat.reducer
 };
 
 export const selectCinemaHallState = createFeatureSelector<CinemaHallState>(
-  'cinemaHall'
+  cinemaHallFeatureState
 );

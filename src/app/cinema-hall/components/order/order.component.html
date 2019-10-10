@@ -1,9 +1,12 @@
-<div *ngIf="orderedSeats.length">
-    <p>You've ordered:</p>
-    <mat-list role="list">
-        <mat-list-item role="listitem" *ngFor="let seat of orderedSeats">seat {{ seat.seatNumber}} at row {{ seat.row }}
-        </mat-list-item>
-    </mat-list>
-    <button mat-raised-button class="order-button" color="primary" (click)="buy()">Procees Order</button>
+<div class="order" *ngIf="orderedSeats.length">
+    <p>Your order is:</p>
+    <ul>
+        <li *ngFor="let seat of orderedSeats">
+            <span>
+                seat {{ seat.seatNumber}} at row {{ seat.row }}
+            </span>
+        </li>
+    </ul>
+    <button mat-raised-button class="order-button" color="primary" (click)="buy()">Proceed</button>
     <button mat-raised-button class="cancel-button" color="warn" (click)="cancel()">Cancel</button>
 </div>

@@ -1,4 +1,6 @@
-<bo-seating-arrangement></bo-seating-arrangement>
-<bo-order [orderedSeats]="orderedSeats$ | async" (proceedOrder)="onOrderProceed($event)"
-    (cancelOrder)="onCancelOrder($event)">
-</bo-order>
+<div class="cinema-hall">
+    <bo-seating-arrangement></bo-seating-arrangement>
+    <bo-order class="cinema-hall__order" [orderedSeats]="orderedSeats$ | async" (proceedOrder)="onOrderProceed($event)"
+        (cancelOrder)="onCancelOrder($event)">
+    </bo-order>
+</div>

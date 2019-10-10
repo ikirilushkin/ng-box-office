@@ -10,6 +10,7 @@ import { Seat } from '@bo/cinema-hall/models';
 @Component({
   selector: 'bo-order',
   templateUrl: './order.component.html',
+  styleUrls: ['./order.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OrderComponent {

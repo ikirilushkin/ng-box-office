@@ -1,12 +1,8 @@
-import {
-  ChangeDetectionStrategy,
-  DebugElement,
-  NO_ERRORS_SCHEMA
-} from '@angular/core';
+import { ChangeDetectionStrategy, DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { OrderComponent } from '@bo/cinema-hall/components';
-import { Seat } from '@bo/cinema-hall/models';
+import { generateMockSeat, Seat } from '@bo/cinema-hall/models';
 
 describe('OrderComponent', () => {
   let component: OrderComponent;
@@ -20,8 +16,7 @@ describe('OrderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [OrderComponent],
-      schemas: [NO_ERRORS_SCHEMA]
+      declarations: [OrderComponent]
     })
       .overrideComponent(OrderComponent, {
         set: { changeDetection: ChangeDetectionStrategy.Default }
@@ -36,18 +31,8 @@ describe('OrderComponent', () => {
     orderEl = orderDe.nativeElement;
 
     seats = [
-      {
-        id: 1000,
-        row: 1,
-        seatNumber: 1,
-        status: 'BOOKED'
-      },
-      {
-        id: 1001,
-        row: 1,
-        seatNumber: 2,
-        status: 'BOOKED'
-      }
+      generateMockSeat('BOOKED', 1000),
+      generateMockSeat('BOOKED', 1001)
     ];
     component.orderedSeats = seats;
 

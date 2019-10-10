@@ -2,7 +2,7 @@ import { Component, DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { SeatComponent } from '@bo/cinema-hall/components';
-import { Seat } from '@bo/cinema-hall/models';
+import { generateMockSeat, Seat } from '@bo/cinema-hall/models';
 
 describe('SeatComponent', () => {
   let component: SeatComponent;
@@ -25,18 +25,8 @@ describe('SeatComponent', () => {
     seatDe = fixture.debugElement.query(By.css('.seat'));
     seatEl = seatDe.nativeElement;
 
-    expectedSeat = {
-      id: 1000,
-      row: 1,
-      seatNumber: 1,
-      status: 'FREE'
-    };
-    orderedSeat = {
-      id: 1000,
-      row: 1,
-      seatNumber: 2,
-      status: 'ORDERED'
-    };
+    expectedSeat = generateMockSeat('FREE', 1000);
+    orderedSeat = generateMockSeat('ORDERED', 1001);
     component.seat = expectedSeat;
 
     fixture.detectChanges();
@@ -84,7 +74,7 @@ describe('SeatComponent passing output', () => {
     fixture.detectChanges();
   });
 
-  it('should raise toggleSeatEvent', () => {
+  it('should raise toggleSeat event', () => {
     seatDe.triggerEventHandler('click', null);
     expect(testHost.selectedSeat).toEqual(testHost.seat2);
   });

@@ -1,6 +1,12 @@
 .hall-row {
   display: flex;
   margin: 3px -3px;
+  align-items: center;
+}
+
+.hall-row__number {
+  width: 30px;
+  text-align: center;
 }
 
 .hall-row__seat {

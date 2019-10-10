@@ -6,11 +6,12 @@ import {
   CinemaHallComponent,
   SeatingArrangementComponent
 } from '@bo/cinema-hall/containers';
+import { CinemaHallEffects } from '@bo/cinema-hall/effects';
+import * as fromCinemaHall from '@bo/cinema-hall/reducers';
 import { reducers } from '@bo/cinema-hall/reducers';
 import { MaterialModule } from '@bo/material';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { CinemaHallEffects } from './effects/cinema-hall.effects';
 
 const COMPONENTS = [
   CinemaHallComponent,
@@ -24,7 +25,7 @@ const COMPONENTS = [
   imports: [
     CommonModule,
     CinemaHallRoutingModule,
-    StoreModule.forFeature('cinemaHall', reducers),
+    StoreModule.forFeature(fromCinemaHall.cinemaHallFeatureState, reducers),
     EffectsModule.forFeature([CinemaHallEffects]),
     MaterialModule
   ]

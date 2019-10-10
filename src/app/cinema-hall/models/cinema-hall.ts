@@ -16,9 +16,9 @@ export interface CinemaHallView {
   rows: CinemaRow[];
 }
 
-export function generateMockSeat(status: SeatStatus): Seat {
+export function generateMockSeat(status: SeatStatus, id = 1000): Seat {
   return {
-    id: 1000,
+    id,
     row: 1,
     seatNumber: 1,
     status
